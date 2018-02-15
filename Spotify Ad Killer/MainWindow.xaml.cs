@@ -70,7 +70,7 @@ namespace Spotify_Ad_Killer
             using (var readerLocal = new StreamReader(systemPath + @"\drivers\etc\hosts"))
             {
                 var localFile = readerLocal.ReadToEnd();
-                var stream = client.OpenRead("http://kazesenoue.moe/uploads/hosts");
+                var stream = client.OpenRead("https://gist.githubusercontent.com/Kxze/877cd41727f7711c88effc42821f66fe/raw/f00006495ac9f6eb5d496bfb8e84ef88bb7e92df/hosts");
                 var remoteFile = new StreamReader(stream).ReadToEnd();
 
                 if (localFile.Contains(remoteFile) && !File.Exists(appdata + @"\Spotify\Apps\ad.spa"))
@@ -98,7 +98,7 @@ namespace Spotify_Ad_Killer
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Made by: http://rodrigo.li \nGithub: http://github.com/Kxze/Spotify-Ad-Killer", "About");
+            MessageBox.Show("Made by: http://kazesenoue.moe \nGithub: https://github.com/Kxze/Spotify-Ad-Killer", "About");
         }
 
         private void button_Click_1(object sender, RoutedEventArgs e)
@@ -109,7 +109,7 @@ namespace Spotify_Ad_Killer
                 {
                     using (var client = new WebClient())
                     {
-                        var stream = client.OpenRead("http://kazesenoue.moe/uploads/hosts");
+                        var stream = client.OpenRead("https://gist.githubusercontent.com/Kxze/877cd41727f7711c88effc42821f66fe/raw/f00006495ac9f6eb5d496bfb8e84ef88bb7e92df/hosts");
                         var remoteFile = new StreamReader(stream).ReadToEnd();
                         File.WriteAllText(systemPath + @"\drivers\etc\hosts", File.ReadAllText(systemPath + @"\drivers\etc\hosts").Replace(remoteFile, ""));
                         MessageBox.Show("Ads enabled!");
@@ -125,7 +125,7 @@ namespace Spotify_Ad_Killer
                     using (var client = new WebClient())
                     using (var stream = new StreamWriter(systemPath + @"\drivers\etc\hosts", true))
                     {
-                        var stream2 = client.OpenRead("http://kazesenoue.moe/uploads/hosts");
+                        var stream2 = client.OpenRead("https://gist.githubusercontent.com/Kxze/877cd41727f7711c88effc42821f66fe/raw/f00006495ac9f6eb5d496bfb8e84ef88bb7e92df/hosts");
                         var reader = new StreamReader(stream2).ReadToEnd();
 
                         stream.Write(reader);
